@@ -7,6 +7,6 @@ import com.ems.emsbackend.entity.Department;
 
 @Repository
 public interface DepartmentDto extends JpaRepository<Department,Long>{
-
+    Department findBydepartmentName(String departmentName);
 }
 

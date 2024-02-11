@@ -1,7 +1,10 @@
 package com.ems.emsbackend.services;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.ems.emsbackend.dto.DepartmentDto;
@@ -17,20 +20,33 @@ public class DepartmentService implements DepartmentServiceI {
 
     @Override
     public Department creaDepartment(Department department) {
-       Department createDepartment=departmentDto.save(department);
-       return createDepartment;
+        Department createDepartment = departmentDto.save(department);
+        return createDepartment;
     }
 
     @Override
     public List<Department> getDepartments() {
-        // Department department = DepartmentMapper.mapToDepartment(departmentDto);
-        List <Department> allDepartmnets = departmentDto.findAll();
-        // List<DepartmentDto> savDepartmentDtos=DepartmentMapper.mapToDto(allDepartmnets);
-
+        List<Department> allDepartmnets = departmentDto.findAll();
         return allDepartmnets;
 
     }
 
- 
+    @Override
+    public Department getById(Long id) {
+        Department fetchedDepartment = departmentDto.findById(id).orElse(null);
+        return fetchedDepartment;
+    }
+
+    @Override
+    public Department getByName(String name) {
+        return departmentDto.findBydepartmentName(name);
+    }
+
+    @Override
+    public Department updateDepartment(Department department) {
+        Department departmentUpdate = departmentDto.save(department);
+
+        return departmentUpdate;
+    }
 
 }
