@@ -49,4 +49,17 @@ public class DepartmentService implements DepartmentServiceI {
         return departmentUpdate;
     }
 
+    @Override
+    public String deleteDepartment(long id) {
+
+        String msg = "";
+        if ((departmentDto.findById(id).orElse(null))!=null) {
+            departmentDto.deleteById(id);
+            msg = "delete complete";
+        } else {
+            msg = "invalid operation";
+        }
+        return msg;
+    }
+
 }
