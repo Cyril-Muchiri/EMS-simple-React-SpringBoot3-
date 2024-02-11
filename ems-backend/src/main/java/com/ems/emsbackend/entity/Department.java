@@ -25,5 +25,5 @@ public class Department {
     private String departmentName;
 
     @Column(nullable = false)
-    private String departmentDesc;
+    private String departmentDescription;
 }
