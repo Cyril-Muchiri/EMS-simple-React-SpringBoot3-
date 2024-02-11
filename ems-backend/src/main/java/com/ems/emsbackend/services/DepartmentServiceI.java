@@ -1,8 +1,11 @@
 package com.ems.emsbackend.services;
 
-import com.ems.emsbackend.dto.DepartmentDto;
+import java.util.List;
+
+import com.ems.emsbackend.entity.Department;
 
 public interface DepartmentServiceI {
-    DepartmentDto creaDto(DepartmentDto departmentDto);
+    Department creaDepartment(Department department);
+    List<Department> getDepartments();
     
 }

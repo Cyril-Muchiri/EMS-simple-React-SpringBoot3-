@@ -1,14 +1,12 @@
 package com.ems.emsbackend.dto;
 
-import lombok.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class DepartmentDto {
+import com.ems.emsbackend.entity.Department;
 
-    private Long id;
-    private String departmentName;
-    private String departMentDescription;
+@Repository
+public interface DepartmentDto extends JpaRepository<Department,Long>{
+
 }
+

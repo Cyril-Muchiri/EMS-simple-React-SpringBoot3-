@@ -1,11 +1,11 @@
 package com.ems.emsbackend.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.ems.emsbackend.dto.DepartmentDto;
 import com.ems.emsbackend.entity.Department;
-import com.ems.emsbackend.mapper.DepartmentMapper;
-import com.ems.emsbackend.repository.DepartmentRepo;
 
 import lombok.AllArgsConstructor;
 
@@ -13,15 +13,24 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class DepartmentService implements DepartmentServiceI {
 
-    private DepartmentRepo departmentRepo;
+    private DepartmentDto departmentDto;
 
     @Override
-    public DepartmentDto creaDto(DepartmentDto departmentDto) {
-
-        Department department = DepartmentMapper.mapToDepartment(departmentDto);
-        Department savedDepartmnet = departmentRepo.save(department);
-
-        return DepartmentMapper.mapToDto(savedDepartmnet);
+    public Department creaDepartment(Department department) {
+       Department createDepartment=departmentDto.save(department);
+       return createDepartment;
     }
+
+    @Override
+    public List<Department> getDepartments() {
+        // Department department = DepartmentMapper.mapToDepartment(departmentDto);
+        List <Department> allDepartmnets = departmentDto.findAll();
+        // List<DepartmentDto> savDepartmentDtos=DepartmentMapper.mapToDto(allDepartmnets);
+
+        return allDepartmnets;
+
+    }
+
+ 
 
 }
