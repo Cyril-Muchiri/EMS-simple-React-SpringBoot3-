@@ -3,22 +3,10 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { listOfEmployees } from "../services/EmployeeService";
+import { useNavigate } from "react-router-dom";
 
 const ListEmployee = () => {
-  // const dummyData = [
-  //   {
-  //     id: "1",
-  //     firstName: "Jong",
-  //     lastName: "Un",
-  //     email: "kim@test.com",
-  //   },
-  //   {
-  //     id: "2",
-  //     firstName: "Donald",
-  //     lastName: "trump",
-  //     email: "trump@test.com",
-  //   },
-  // ];
+  const navigator = useNavigate();
 
   const [employees, setEmployees] = useState([]);
 
@@ -31,9 +19,16 @@ const ListEmployee = () => {
         console.error(error);
       });
   }, []);
+
+  function addNewEmployee() {
+    navigator('/add-employee')
+  }
   return (
     <div className="container">
-      <h1>ListEmployee</h1>
+      <h3>List of Employees</h3>
+      <button type="button" class="btn btn-secondary" onClick={addNewEmployee}>
+        Add
+      </button>
 
       <table className="table table-striped table-bordered">
         <thead>
