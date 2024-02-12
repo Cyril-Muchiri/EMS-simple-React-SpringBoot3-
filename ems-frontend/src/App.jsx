@@ -5,13 +5,29 @@ import "./App.css";
 import ListEmployee from "./components/ListEmployee";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { BrowserRouter, Routes,Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-    <Header></Header>
-      <ListEmployee></ListEmployee>
-      <Footer></Footer>
+      <BrowserRouter>
+
+        <Header></Header>
+        <Routes>
+
+          <Route path="/" element ={<ListEmployee></ListEmployee>}>
+          </Route>
+          <Route path="/employees" element ={<ListEmployee></ListEmployee>}>
+
+          </Route>
+
+        </Routes>
+
+        <ListEmployee></ListEmployee>
+
+        <Footer></Footer>
+
+      </BrowserRouter>
     </>
   );
 }
