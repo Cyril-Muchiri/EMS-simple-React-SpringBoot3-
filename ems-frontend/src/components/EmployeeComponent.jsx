@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from "react";
 
-function EmployeeComponent() {
-  return (
-    <div>
-        <h2>Employee component</h2>
-    </div>
-  )
-}
+const EmployeeComponent = () => {
+    
+  const [firstName, setFirstname] = useState("");
+  const [lastName, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  return <div></div>;
+};
 
-export default EmployeeComponent
+export default EmployeeComponent;
