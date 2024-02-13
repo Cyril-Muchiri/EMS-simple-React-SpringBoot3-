@@ -26,9 +26,11 @@ const ListEmployee = () => {
   return (
     <div className="container">
       <h3>List of Employees</h3>
+      
       <button type="button" class="btn btn-secondary" onClick={addNewEmployee}>
         Add
       </button>
+      
 
       <table className="table table-striped table-bordered">
         <thead>
