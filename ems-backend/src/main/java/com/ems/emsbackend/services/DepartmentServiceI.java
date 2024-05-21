@@ -4,7 +4,7 @@ import java.util.List;
 import com.ems.emsbackend.entity.Department;
 
 public interface DepartmentServiceI {
-    Department creaDepartment(Department department);
+    Department createDepartment(Department department);
 
     List<Department> getDepartments();
 
@@ -15,6 +15,6 @@ public interface DepartmentServiceI {
     Department updateDepartment(Department department);
 
     // String deleteDepartment(Department department);
-    public String deleteDepartment(long id);
+    public String deleteDepartmentById(long id);
 
 }

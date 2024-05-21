@@ -19,7 +19,7 @@ public class DepartmentService implements DepartmentServiceI {
     private DepartmentDto departmentDto;
 
     @Override
-    public Department creaDepartment(Department department) {
+    public Department createDepartment(Department department) {
         Department createDepartment = departmentDto.save(department);
         return createDepartment;
     }
@@ -50,7 +50,7 @@ public class DepartmentService implements DepartmentServiceI {
     }
 
     @Override
-    public String deleteDepartment(long id) {
+    public String deleteDepartmentById(long id) {
 
         String msg = "";
         if ((departmentDto.findById(id).orElse(null))!=null) {

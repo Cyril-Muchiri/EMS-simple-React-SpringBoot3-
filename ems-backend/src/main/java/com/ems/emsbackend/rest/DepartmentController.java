@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,8 @@ import com.ems.emsbackend.services.DepartmentServiceI;
 
 import lombok.AllArgsConstructor;
 
+
+@CrossOrigin("*")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/departments")
@@ -29,7 +32,7 @@ public class DepartmentController {
 
     @PostMapping
     public ResponseEntity<Department> createDepartment(@RequestBody Department newDepartment) {
-        Department department = departmentServiceI.creaDepartment(newDepartment);
+        Department department = departmentServiceI.createDepartment(newDepartment);
         return new ResponseEntity<>(department, HttpStatus.CREATED);
     }
 
@@ -55,7 +58,7 @@ public class DepartmentController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteEntity(@PathVariable Long id) {
-        String status = departmentServiceI.deleteDepartment(id);
+        String status = departmentServiceI.deleteDepartmentById(id);
 
         return new ResponseEntity<String>(status, HttpStatus.ACCEPTED);
     }

@@ -24,7 +24,7 @@ public class EmployeeService implements EmployeeServiceI {
                 employeeDto.save(employee);
                 msg = "Employee added succesfully!";
             } catch (DataAccessException e) {
-                msg = " cannot perfom operation!";
+                msg = "";
             }
         
         return msg;

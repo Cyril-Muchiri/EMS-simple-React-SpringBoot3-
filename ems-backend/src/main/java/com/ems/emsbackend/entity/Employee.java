@@ -1,10 +1,8 @@
 package com.ems.emsbackend.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -23,5 +21,7 @@ public class Employee {
 
     @Column(unique = true)
     private String email;
+
+    private Long department_id;
 
 }
